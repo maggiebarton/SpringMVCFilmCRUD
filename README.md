@@ -1,3 +1,4 @@
-# Spring MVC Film Crud
 
-## Added by Sawyer
+# Spring MVC Film CRUD
+## Added by Maggie and Sawyer
+
