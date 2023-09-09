@@ -40,12 +40,16 @@
 					${film.actors}
 				
 					
+		<a href="updateFilmForm.do?filmId=${film.filmId}">Update Film</a>
+
+		<a href="deleteFilm.do?filmId=${film.filmId}">Delete Film</a>
+		
+		<a href="index.html" class="btn btn-secondary" role="button">Back to Home</a>
+
+		
 			
 		</c:otherwise>
 	</c:choose>
-		<a href="updateFilmForm.do?filmId=${film.filmId}">Update Film</a>
-
-		<a href="addFilm.html">Delete Film</a>
 	
 </body>
 </html>

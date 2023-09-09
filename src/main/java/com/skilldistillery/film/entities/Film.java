@@ -216,8 +216,6 @@ public class Film {
 		builder.append(rating);
 		builder.append(", \n Special Features: ");
 		builder.append(features);
-		builder.append(", \n Starring: ");
-		builder.append(actors);
 		return builder.toString();
 	}
 }

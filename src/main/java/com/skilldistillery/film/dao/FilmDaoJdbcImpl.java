@@ -444,7 +444,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 					System.err.println("Error trying to rollback");
 				}
 			}
-			throw new RuntimeException("Error inserting actor " + film);
+			throw new RuntimeException("Error inserting film " + film);
 		}
 		return film;
 	}
