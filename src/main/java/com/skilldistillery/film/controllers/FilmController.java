@@ -13,14 +13,14 @@ import com.skilldistillery.film.entities.Film;
 public class FilmController {
 	@Autowired
 	private FilmDAO dao;
-	
+
 //	@RequestMapping(path="getFilm.do", method=RequestMethod.GET)
 //	public String getFilm(@RequestParam Integer filmId, Model model) {
 //		System.out.println("filmID:" + filmId);
 //		model.addAttribute("filmId", filmId);
 //		return "WEB-INF/film.jsp";
 //	}
-	
+
 	@RequestMapping(path = "getFilm.do", method = RequestMethod.GET, params = "filmId")
 	public ModelAndView getFilmById(int filmId) {
 		ModelAndView mv = new ModelAndView();
@@ -28,7 +28,7 @@ public class FilmController {
 		mv.addObject("films", dao.findFilmById(filmId));
 		return mv;
 	}
-	
+
 	@RequestMapping(path = "getFilm.do", method = RequestMethod.GET, params = "keyword")
 	public ModelAndView getFilmByKeyword(String keyword) {
 		ModelAndView mv = new ModelAndView();
@@ -36,22 +36,26 @@ public class FilmController {
 		mv.addObject("films", dao.findFilmsByKeyword(keyword));
 		return mv;
 	}
-	
-	@RequestMapping(path = "addFilm.do", method = RequestMethod.GET, params = "film")
-	public ModelAndView addFilm(Film film) {
+
+	@RequestMapping(path = "addFilm.do", method = RequestMethod.GET,
+			params = { "title", "description", "releaseYear", "langId" })
+	public ModelAndView addFilm(String title, String description, short releaseYear, int langId) {
 		ModelAndView mv = new ModelAndView();
-		
-		//maybe we make a new .jsp for this?
+		Film film = new Film();
+		//to do: add the rest of the fields; used limited fields for testing purposes
+		film.setTitle(title);
+		film.setDescription(description);
+		film.setReleaseYear(releaseYear);
+		film.setLangId(langId);
+
 		mv.setViewName("WEB-INF/film.jsp");
-		mv.addObject("film", dao.createFilm(film));
+		mv.addObject("films", dao.createFilm(film));
 		return mv;
 	}
-	
+
 	@RequestMapping(path = "deleteFilm.do", method = RequestMethod.GET, params = "film")
 	public ModelAndView deleteFilm(Film film) {
 		ModelAndView mv = new ModelAndView();
-		
-		//maybe we make a new .jsp for this?
 		mv.setViewName("WEB-INF/film.jsp");
 		mv.addObject("film", dao.deleteFilm(film));
 		return mv;
