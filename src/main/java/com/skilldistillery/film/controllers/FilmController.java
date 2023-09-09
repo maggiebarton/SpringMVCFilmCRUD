@@ -14,18 +14,13 @@ public class FilmController {
 	@Autowired
 	private FilmDAO dao;
 
-//	@RequestMapping(path="getFilm.do", method=RequestMethod.GET)
-//	public String getFilm(@RequestParam Integer filmId, Model model) {
-//		System.out.println("filmID:" + filmId);
-//		model.addAttribute("filmId", filmId);
-//		return "WEB-INF/film.jsp";
-//	}
-
 	@RequestMapping(path = "getFilm.do", method = RequestMethod.GET, params = "filmId")
 	public ModelAndView getFilmById(int filmId) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("WEB-INF/singleFilm.jsp");
-		mv.addObject("film", dao.findFilmById(filmId));
+		Film film = dao.findFilmById(filmId);
+		dao.findFilmCategory(film);
+		mv.addObject("film", film );
 		return mv;
 	}
 

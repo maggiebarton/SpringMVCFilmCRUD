@@ -535,4 +535,32 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 		return true;
 	}
 
+	@Override
+	public Film findFilmCategory(Film film) {
+		String category = "";
+
+		Connection conn;
+		try {
+			conn = DriverManager.getConnection(URL, USER, PASS);
+
+			// select c.name from category c join film_category fc on fc.category_id = c.id
+			// join film f on f.id = fc.film_id where f.id = 13;
+			String sql = "select c.name from category c join film_category fc on fc.category_id = c.id join film f on f.id = fc.film_id where f.id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, film.getFilmId());
+
+			ResultSet catResult = stmt.executeQuery();
+			if (catResult.next()) {
+				category = catResult.getString("name");
+				film.setCategory(category);
+			}
+			catResult.close();
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return film;
+	}
 }

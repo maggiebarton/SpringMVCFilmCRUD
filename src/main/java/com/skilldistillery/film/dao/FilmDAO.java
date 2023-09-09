@@ -26,4 +26,6 @@ public interface FilmDAO {
 
 	public boolean updateFilm(Film film);
 
+	public Film findFilmCategory(Film film);
+
 }

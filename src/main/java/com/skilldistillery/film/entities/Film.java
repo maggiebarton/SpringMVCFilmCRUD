@@ -16,6 +16,7 @@ public class Film {
 	private double repCost;
 	private String rating;
 	private String features;
+	private String category;
 	private List<Actor> actors;
 
 	public Film() {}
@@ -156,6 +157,14 @@ public class Film {
 		this.actors = actors;
 	}
 
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
 	@Override
 	public int hashCode() {

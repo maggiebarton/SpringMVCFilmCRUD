@@ -28,6 +28,18 @@
 					${film.filmId}
 					${film.title}
 					${film.description}
+					${film.releaseYear}
+					${film.langId}
+					${film.rentDur}
+					${film.rate}
+					${film.length}
+					${film.repCost}
+					${film.rating}
+					${film.features}
+					${film.category}<br>
+					${film.actors}
+				
+					
 			
 		</c:otherwise>
 	</c:choose>
