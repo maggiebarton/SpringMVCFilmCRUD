@@ -5,7 +5,7 @@ import java.util.Objects;
 
 
 public class Film {
-	private int id;
+	private int filmId;
 	private String title;
 	private String description;
 	private short releaseYear;
@@ -23,7 +23,7 @@ public class Film {
 	public Film(int id, String title, String description, short releaseYear, int langId, int rentDur, double rate,
 			int length, double repCost, String rating, String features) {
 		super();
-		this.id = id;
+		this.filmId = id;
 		this.title = title;
 		this.description = description;
 		this.releaseYear = releaseYear;
@@ -37,13 +37,13 @@ public class Film {
 	}
 
 
-	public int getId() {
-		return id;
+	public int getFilmId() {
+		return filmId;
 	}
 
 
-	public void setId(int id) {
-		this.id = id;
+	public void setFilmId(int filmId) {
+		this.filmId = filmId;
 	}
 
 
@@ -159,7 +159,7 @@ public class Film {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(actors, description, features, id, langId, length, rate, rating, releaseYear, rentDur,
+		return Objects.hash(actors, description, features, filmId, langId, length, rate, rating, releaseYear, rentDur,
 				repCost, title);
 	}
 
@@ -174,7 +174,7 @@ public class Film {
 			return false;
 		Film other = (Film) obj;
 		return Objects.equals(actors, other.actors) && Objects.equals(description, other.description)
-				&& Objects.equals(features, other.features) && id == other.id && langId == other.langId
+				&& Objects.equals(features, other.features) && filmId == other.filmId && langId == other.langId
 				&& length == other.length && Double.doubleToLongBits(rate) == Double.doubleToLongBits(other.rate)
 				&& Objects.equals(rating, other.rating) && releaseYear == other.releaseYear && rentDur == other.rentDur
 				&& Double.doubleToLongBits(repCost) == Double.doubleToLongBits(other.repCost)
@@ -186,7 +186,7 @@ public class Film {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Film ID: ");
-		builder.append(id);
+		builder.append(filmId);
 		builder.append(", \n Title: ");
 		builder.append(title);
 		builder.append(", \n Description: ");

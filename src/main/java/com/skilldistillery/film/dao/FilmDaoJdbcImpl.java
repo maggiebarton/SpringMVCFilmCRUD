@@ -45,7 +45,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 
 				// map query columns to our object fields
 
-				film.setId(filmResult.getInt("id"));
+				film.setFilmId(filmResult.getInt("id"));
 				film.setTitle(filmResult.getString("title"));
 				film.setDescription(filmResult.getString("description"));
 				film.setReleaseYear(filmResult.getShort("release_year"));
@@ -247,7 +247,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 						sql = "INSERT INTO film_actor (film_id, actor_id) VALUES (?,?)";
 						stmt = conn.prepareStatement(sql);
 						for (Film film : actor.getFilms()) {
-							stmt.setInt(1, film.getId());
+							stmt.setInt(1, film.getFilmId());
 							stmt.setInt(2, newActorId);
 
 							// execute update
@@ -315,7 +315,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 				sql = "INSERT INTO film_actor (film_id, actor_id) VALUES (?,?)";
 				stmt = conn.prepareStatement(sql);
 				for (Film film : actor.getFilms()) {
-					stmt.setInt(1, film.getId());
+					stmt.setInt(1, film.getFilmId());
 					stmt.setInt(2, actor.getId());
 
 					// execute update
@@ -413,7 +413,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 				// assign Film ID and actors
 				if (keys.next()) {
 					int newFilmID = keys.getInt(1);
-					film.setId(newFilmID);
+					film.setFilmId(newFilmID);
 
 					// if film has actors, insert actor IDs into film_actor table
 					if (film.getActors() != null && film.getActors().size() > 0) {
@@ -464,7 +464,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 
 			// prepare statement and set bind variable
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, film.getId());
+			stmt.setInt(1, film.getFilmId());
 
 			// execute delete
 			int updateCount = stmt.executeUpdate();
@@ -505,7 +505,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			stmt.setString(2, film.getDescription());
 			stmt.setInt(3, film.getReleaseYear());
 			stmt.setInt(4, film.getLangId());
-			stmt.setInt(5, film.getId());
+			stmt.setInt(5, film.getFilmId());
 
 			// execute update
 			int updateCount = stmt.executeUpdate();

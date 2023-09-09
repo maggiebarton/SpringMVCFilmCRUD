@@ -24,15 +24,15 @@ public class FilmController {
 	@RequestMapping(path = "getFilm.do", method = RequestMethod.GET, params = "filmId")
 	public ModelAndView getFilmById(int filmId) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/film.jsp");
-		mv.addObject("films", dao.findFilmById(filmId));
+		mv.setViewName("WEB-INF/singleFilm.jsp");
+		mv.addObject("film", dao.findFilmById(filmId));
 		return mv;
 	}
 
 	@RequestMapping(path = "getFilm.do", method = RequestMethod.GET, params = "keyword")
 	public ModelAndView getFilmByKeyword(String keyword) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/film.jsp");
+		mv.setViewName("WEB-INF/films.jsp");
 		mv.addObject("films", dao.findFilmsByKeyword(keyword));
 		return mv;
 	}
