@@ -12,12 +12,11 @@
 <body>
 
 
-	<h1>Film Details</h1>
-
+	<h1>Update Status</h1>
 
 	<c:choose>
 		<c:when test="${empty film}">
-			<p>No films matched your search.</p>
+			<p>An error occurred while updating film.</p>
 			<p>
 				<a href="index.html" class="btn btn-secondary" role="button">Back
 					to Home</a>
@@ -25,15 +24,17 @@
 
 		</c:when>
 		<c:otherwise>
+			<p>Update Successful! See details...</p>
 					${film.filmId}
 					${film.title}
 					${film.description}
-			
+					
+			<p>
+				<a href="index.html" class="btn btn-secondary" role="button">Back
+					to Home</a>
+			</p>
+
 		</c:otherwise>
 	</c:choose>
-		<a href="updateFilmForm.do?filmId=${film.filmId}">Update Film</a>
-
-		<a href="addFilm.html">Delete Film</a>
-	
 </body>
 </html>

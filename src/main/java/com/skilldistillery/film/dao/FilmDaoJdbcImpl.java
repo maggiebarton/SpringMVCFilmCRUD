@@ -487,6 +487,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 
 	@Override
 	public boolean updateFilm(Film film) {
+		System.out.println("***********************" + film);
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASS);
@@ -494,7 +495,8 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			// start transaction
 			conn.setAutoCommit(false);
 
-			String sql = "update film set title=?, description=?, release_year=?, language_id=? " + " WHERE id=?";
+			String sql = "update film set title=?, description=?, release_year=?, language_id=?, rental_duration=?, rental_rate=?, length=?, replacement_cost=?, rating=?, special_features=? "
+					+ " WHERE id=?";
 
 			// prepare statement
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -505,7 +507,13 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			stmt.setString(2, film.getDescription());
 			stmt.setInt(3, film.getReleaseYear());
 			stmt.setInt(4, film.getLangId());
-			stmt.setInt(5, film.getFilmId());
+			stmt.setInt(5, film.getRentDur());
+			stmt.setDouble(6, film.getRate());
+			stmt.setInt(7, film.getLength());
+			stmt.setDouble(8, film.getRepCost());
+			stmt.setString(9, film.getRating());
+			stmt.setString(10, film.getFeatures());
+			stmt.setInt(11, film.getFilmId());
 
 			// execute update
 			int updateCount = stmt.executeUpdate();
