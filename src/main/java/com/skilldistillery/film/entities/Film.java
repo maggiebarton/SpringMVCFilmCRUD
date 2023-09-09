@@ -185,31 +185,30 @@ public class Film {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Film [id=");
+		builder.append("Film ID: ");
 		builder.append(id);
-		builder.append(", title=");
+		builder.append(", \n Title: ");
 		builder.append(title);
-		builder.append(", description=");
+		builder.append(", \n Description: ");
 		builder.append(description);
-		builder.append(", releaseYear=");
+		builder.append(", \n Release Year: ");
 		builder.append(releaseYear);
-		builder.append(", langId=");
+		builder.append(", \n ID of Language: ");
 		builder.append(langId);
-		builder.append(", rentDur=");
+		builder.append(", \n Rental Duration: ");
 		builder.append(rentDur);
-		builder.append(", rate=");
+		builder.append(", \n Rental Rate: ");
 		builder.append(rate);
-		builder.append(", length=");
+		builder.append(", \n Length of Film: ");
 		builder.append(length);
-		builder.append(", repCost=");
+		builder.append(", \n Replacement Costs: ");
 		builder.append(repCost);
-		builder.append(", rating=");
+		builder.append(", \n Ratings: ");
 		builder.append(rating);
-		builder.append(", features=");
+		builder.append(", \n Special Features: ");
 		builder.append(features);
-		builder.append(", actors=");
+		builder.append(", \n Starring: ");
 		builder.append(actors);
-		builder.append("]");
 		return builder.toString();
 	}
 }
