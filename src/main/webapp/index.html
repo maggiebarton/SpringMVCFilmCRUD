@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>MVC Film Site</title>
+	<meta charset="UTF-8">
+	<title>MVC Film Site</title>
 </head>
+
 <body>
 	<h1>Spring MVC Film Site</h1>
-	
+	<h3>Search by Film ID:</h3>
 	<form action="getFilm.do" method="get">
 		<input type="number" name="filmId">
-		<button>Show Film</button>
+		<button>Find Film</button>
+	</form>
+	<h3>Search by Keyword:</h3>
+	<form action="getFilm.do" method="get">
+		<input type="text" name="keyword">
+		<button>Find Film</button>
 	</form>
 </body>
+
 </html>

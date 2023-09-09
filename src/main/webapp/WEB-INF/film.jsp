@@ -14,6 +14,6 @@
 
 <h1>Film Details</h1>
 
-<h2>${filmId}</h2>
+<h2>${films}</h2>
 </body>
 </html>
