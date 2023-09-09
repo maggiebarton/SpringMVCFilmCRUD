@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.dao.FilmDAO;
+import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
 
 @Controller
@@ -77,7 +78,6 @@ public class FilmController {
 		return mv;
 	}
 
-	// NOT WORKING YET
 	@RequestMapping(path = "deleteFilm.do", method = RequestMethod.GET, params = "filmId")
 	public ModelAndView deleteFilm(int filmId) {
 		ModelAndView mv = new ModelAndView();
@@ -88,4 +88,46 @@ public class FilmController {
 		mv.addObject("film", testIfFilmDeleted);
 		return mv;
 	}
+	
+	@RequestMapping(path = "addActor.do", method = RequestMethod.GET, params = {"firstName", "lastName"})
+	public ModelAndView addActor(String firstName, String lastName) {
+		ModelAndView mv = new ModelAndView();
+		Actor actor = new Actor();
+		actor.setFirstName(firstName);
+		actor.setLastName(lastName);
+
+		mv.addObject("actor", dao.createActor(actor));
+		mv.setViewName("WEB-INF/actor.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "updateActorForm.do", params = "actorId")
+	public ModelAndView updateActorForm(int actorId) {
+		ModelAndView mv = new ModelAndView();
+		Actor actor = dao.findActorById(actorId);
+		mv.addObject("actor", actor);
+		mv.setViewName("WEB-INF/updateActorForm.jsp");
+		return mv;
+	}
+
+	@RequestMapping(path = "updateActor.do", method = RequestMethod.POST)
+	public ModelAndView updateActorForm(Actor actor) {
+		ModelAndView mv = new ModelAndView();
+		dao.updateActor(actor);
+		mv.setViewName("WEB-INF/updateStatusActor.jsp");
+		mv.addObject("actor", dao.findActorById(actor.getActorId()));
+		return mv;
+	}
+	
+	@RequestMapping(path = "deleteActor.do", method = RequestMethod.GET, params = "actorId")
+	public ModelAndView deleteActor(int actorId) {
+		ModelAndView mv = new ModelAndView();
+		Actor actorToDelete = dao.findActorById(actorId);
+		dao.deleteActor(actorToDelete);
+		Actor testIfActorDeleted = dao.findActorById(actorId);
+		mv.setViewName("WEB-INF/deleteStatusActor.jsp");
+		mv.addObject("actor", testIfActorDeleted);
+		return mv;
+	}
+	
 }

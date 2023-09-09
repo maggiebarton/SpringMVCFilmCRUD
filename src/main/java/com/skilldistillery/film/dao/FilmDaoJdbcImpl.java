@@ -85,7 +85,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			if (actorResult.next()) {
 				actor = new Actor(); // Create the object
 				// Here is our mapping of query columns to our object fields:
-				actor.setId(actorResult.getInt("id"));
+				actor.setActorId(actorResult.getInt("id"));
 				actor.setFirstName(actorResult.getString("first_name"));
 				actor.setLastName(actorResult.getString("last_name"));
 				actor.setFilms(findFilmsByActorId(actorId)); // An Actor has Films
@@ -240,7 +240,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 				// assign actor ID and films
 				if (keys.next()) {
 					int newActorId = keys.getInt(1);
-					actor.setId(newActorId);
+					actor.setActorId(newActorId);
 
 					// if actor has films, insert film IDs into film_actor table
 					if (actor.getFilms() != null && actor.getFilms().size() > 0) {
@@ -294,7 +294,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			// if nothing changed here it will still update with the same values
 			stmt.setString(1, actor.getFirstName());
 			stmt.setString(2, actor.getLastName());
-			stmt.setInt(3, actor.getId());
+			stmt.setInt(3, actor.getActorId());
 
 			// execute update
 			int updateCount = stmt.executeUpdate();
@@ -305,7 +305,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 				// delete film associations in film_actor
 				sql = "DELETE FROM film_actor WHERE actor_id = ?";
 				stmt = conn.prepareStatement(sql);
-				stmt.setInt(1, actor.getId());
+				stmt.setInt(1, actor.getActorId());
 
 				// execute delete
 				updateCount = stmt.executeUpdate();
@@ -316,12 +316,12 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 				stmt = conn.prepareStatement(sql);
 				for (Film film : actor.getFilms()) {
 					stmt.setInt(1, film.getFilmId());
-					stmt.setInt(2, actor.getId());
+					stmt.setInt(2, actor.getActorId());
 
 					// execute update
 					updateCount = stmt.executeUpdate();
 				}
-				conn.commit();
+			conn.commit();
 			}
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -351,7 +351,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 
 			// prepare statement and set bind variable
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, actor.getId());
+			stmt.setInt(1, actor.getActorId());
 
 			// execute update
 			int updateCount = stmt.executeUpdate();
@@ -361,7 +361,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 
 			// prepare statement and bind variable
 			stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, actor.getId());
+			stmt.setInt(1, actor.getActorId());
 
 			// execute delete
 			updateCount = stmt.executeUpdate();
@@ -421,7 +421,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 						stmt = conn.prepareStatement(sql);
 						for (Actor actor : film.getActors()) {
 							stmt.setInt(1, newFilmID);
-							stmt.setInt(2, actor.getId());
+							stmt.setInt(2, actor.getActorId());
 
 							// execute update
 							updateCount = stmt.executeUpdate();

@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Actor {
 
-	private int id;
+	private int actorId;
 	private String firstName;
 	private String lastName;
 	private List<Film> films;
@@ -13,17 +13,17 @@ public class Actor {
 	public Actor() {
 	}
 
-	public Actor(int id, String firstName, String lastName, List<Film> films) {
+	public Actor(int actorId, String firstName, String lastName, List<Film> films) {
 		super();
-		this.id = id;
+		this.actorId = actorId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.films = films;
 	}
 
-	public Actor(int id, String firstName, String lastName) {
+	public Actor(int actorId, String firstName, String lastName) {
 		super();
-		this.id = id;
+		this.actorId = actorId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
@@ -34,12 +34,12 @@ public class Actor {
 		this.lastName = lastName;
 	}
 
-	public int getId() {
-		return id;
+	public int getActorId() {
+		return actorId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setActorId(int actorId) {
+		this.actorId = actorId;
 	}
 
 	public String getFirstName() {
@@ -73,7 +73,7 @@ public class Actor {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(actorId);
 	}
 
 	@Override
@@ -85,7 +85,7 @@ public class Actor {
 		if (getClass() != obj.getClass())
 			return false;
 		Actor other = (Actor) obj;
-		return id == other.id;
+		return actorId == other.actorId;
 	}
 
 }
