@@ -14,12 +14,6 @@ public interface FilmDAO {
 
 	public List<Film> findFilmsByKeyword(String keyword);
 
-	public Film findFilmLanguage(Film film);
-
-	public Film findFilmCategory(Film film);
-
-	public List<Film> findFilmInventory(int filmId);
-
 	public Actor createActor(Actor actor);
 
 	public boolean updateActor(Actor actor);
