@@ -60,4 +60,12 @@ public class FilmController {
 		mv.addObject("film", dao.deleteFilm(film));
 		return mv;
 	}
+	
+	@RequestMapping(path = "updateFilm.do", method = RequestMethod.GET, params = "film")
+	public ModelAndView updateFilm(Film film) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("WEB-INF/film.jsp");
+		mv.addObject("film", dao.deleteFilm(film));
+		return mv;
+	}
 }
