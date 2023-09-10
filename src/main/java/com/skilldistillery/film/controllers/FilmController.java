@@ -36,9 +36,8 @@ public class FilmController {
 	}
 
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.GET, params = { "title", "description", "releaseYear",
-			"langId" })
+			"langId", "rentDur", "rate", "length", "repCost", "rating", "features" })
 
-	// , "rentDur", "rate", "length", "repCost", "rating", "features"
 	public ModelAndView addFilm(String title, String description, short releaseYear, int langId, int rentDur,
 			double rate, int length, double repCost, String rating, String features) {
 		ModelAndView mv = new ModelAndView();

@@ -312,15 +312,15 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 
 				// insert film associations in film_actor (even if they end up the same as
 				// before - because at this moment in the code it's empty)
-				sql = "INSERT INTO film_actor (film_id, actor_id) VALUES (?,?)";
-				stmt = conn.prepareStatement(sql);
-				for (Film film : actor.getFilms()) {
-					stmt.setInt(1, film.getFilmId());
-					stmt.setInt(2, actor.getActorId());
-
-					// execute update
-					updateCount = stmt.executeUpdate();
-				}
+//				sql = "INSERT INTO film_actor (film_id, actor_id) VALUES (?,?)";
+//				stmt = conn.prepareStatement(sql);
+//				for (Film film : actor.getFilms()) {
+//					stmt.setInt(1, film.getFilmId());
+//					stmt.setInt(2, actor.getActorId());
+//
+//					// execute update
+//					updateCount = stmt.executeUpdate();
+//				}
 			conn.commit();
 			}
 		} catch (SQLException sqle) {
@@ -391,7 +391,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			// start transaction
 			conn.setAutoCommit(false);
 
-			String sql = "insert into film (title, description, release_year, language_id) values (?,?,?,?)";
+			String sql = "insert into film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features) values (?,?,?,?,?,?,?,?,?,?)";
 
 			// prepare statement and generate key(s)
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -401,6 +401,12 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			stmt.setString(2, film.getDescription());
 			stmt.setInt(3, film.getReleaseYear());
 			stmt.setInt(4, film.getLangId());
+			stmt.setInt(5, film.getRentDur());
+			stmt.setDouble(6, film.getRate());
+			stmt.setInt(7, film.getLength());
+			stmt.setDouble(8, film.getRepCost());
+			stmt.setString(9, film.getRating());
+			stmt.setString(10, film.getFeatures());
 
 			// execute update (tells us how many rows were affected or 0 if nothing
 			// happened)
@@ -487,7 +493,8 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 
 	@Override
 	public boolean updateFilm(Film film) {
-		System.out.println("***********************" + film);
+		//for testing
+		//System.out.println("***********************" + film);
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASS);
