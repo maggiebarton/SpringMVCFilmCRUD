@@ -31,7 +31,7 @@
 	</div>
 
 	<div class="container">
-		<div class="row align-items-center">
+		<div class="row">
 			<div class="col">
 				<c:choose>
 					<c:when test="${empty film}">
@@ -44,6 +44,9 @@
 					</c:when>
 					<c:otherwise>
 						<dl class="row">
+							<dt class="col-sm-3">ID</dt>
+							<dd class="col-sm-9">${film.filmId}</dd>
+							
 							<dt class="col-sm-3">Title</dt>
 							<dd class="col-sm-9">${film.title}</dd>
 
@@ -93,11 +96,11 @@
 					<div class="col text-center">
 
 						<a href="updateFilmForm.do?filmId=${film.filmId}"
-							class="btn btn-outline-secondary" role="button">Update Film</a><br><br>
-						<a href="deleteFilm.do?filmId=${film.filmId}"
-							class="btn btn-outline-secondary" role="button">Delete Film</a><br><br>
-						<a href="index.html" class="btn btn-secondary" role="button">Back
-							to Home</a>
+							class="btn btn-outline-secondary" role="button">Update Film</a><br>
+						<br> <a href="deleteFilm.do?filmId=${film.filmId}"
+							class="btn btn-outline-secondary" role="button">Delete Film</a><br>
+						<br> <a href="index.html" class="btn btn-secondary"
+							role="button">Back to Home</a>
 
 					</div>
 				</c:when>

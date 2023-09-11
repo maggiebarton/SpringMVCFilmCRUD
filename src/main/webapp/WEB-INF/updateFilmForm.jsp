@@ -31,30 +31,70 @@
 	</div>
 	<div class="container">
 		<div class="row align-items-center">
-
+			<div class="col">
 				<form action="updateFilm.do" method="post">
+
 					<input type="hidden" name="filmId" value="${film.filmId}">
-					Title: <input type="text" name="title" value="${film.title}">
-					<br> Description: <input type="text" name="description"
-						value="${film.description}"> <br> Release Year: <input
-						type="number" name="releaseYear" value="${film.releaseYear}">
-					<br> Language ID: <input type="number" name="langId"
-						value="${film.langId}"> <br> Rental Duration: <input
-						type="number" name="rentDur" value="${film.rentDur}"> <br>
-					Rental Rate: <input type="number" name="rate" value="${film.rate}">
-					<br> Length of Movie: <input type="number" name="length"
-						value="${film.length}"> <br> Replacement Cost: <input
-						type="number" name="repCost" value="${film.repCost}"> <br>
-					Movie Rating: <input type="text" name="rating"
-						value="${film.rating}"> <br> Special Features: <input
-						type="text" name="features" value="${film.features}"> <br>
-					<input type="submit" class="btn btn-secondary" role="button"
-						value="Submit">
-						<input type="reset"
-						class="btn btn-outline-secondary" role="button" value="Reset">
+					<div class="mb-3">
+						<label for="title" class="form-label">Title</label> <input
+							type="text" name="title" value="${film.title}"
+							class="form-control">
+					</div>
+					<div class="mb-3">
+						<label for="description" class="form-label">Description</label> <input
+							type="text" name="description" value="${film.description}"
+							class="form-control">
+					</div>
+					<div class="mb-3">
+						<label for="releaseYear" class="form-label">Release Year</label> <input
+							type="number" name="releaseYear" value="${film.releaseYear}"
+							class="form-control">
+					</div>
+					<div class="mb-3">
+						<label for="langId" class="form-label">Language ID</label> <input
+							type="number" name="langId" value="${film.langId}"
+							class="form-control">
+					</div>
+					<div class="mb-3">
+						<label for="rentDur" class="form-label">Rental Duration</label> <input
+							type="number" name="rentDur" value="${film.rentDur}"
+							class="form-control">
+					</div>
+					<div class="mb-3">
+						<label for="rate" class="form-label">Rental Rate</label> <input
+							type="text" name="rate" value="${film.rate}" class="form-control">
+					</div>
+					<div class="mb-3">
+						<label for="length" class="form-label">Length</label> <input
+							type="number" name="length" value="${film.length}"
+							class="form-control">
+					</div>
+					<div class="mb-3">
+						<label for="repCost" class="form-label">Replacement Cost</label> <input
+							type="text" name="repCost" value="${film.repCost}"
+							class="form-control">
+					</div>
+					<div class="mb-3">
+						<label for="rating" class="form-label">Rating</label> <input
+							type="text" name="rating" value="${film.rating}"
+							class="form-control">
+					</div>
+					<div class="mb-3">
+						<label for="features" class="form-label">Special Features</label>
+						<input type="text" name="features" value="${film.features}"
+							class="form-control">
+					</div>
+					<div class="mb-3">
+						<input type="submit" class="btn btn-secondary" role="button"
+							value="Submit"> <input type="reset"
+							class="btn btn-outline-secondary" role="button" value="Reset">
+					</div>
+
 				</form>
 			</div>
+			<div class="col"></div>
 		</div>
+	</div>
 
 
 
@@ -72,7 +112,5 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 		crossorigin="anonymous"></script>
-
-
 </body>
 </html>

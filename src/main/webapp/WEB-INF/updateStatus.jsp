@@ -49,6 +49,9 @@
 					<div class="col">
 						<p class="lead">Update Successful! See details...</p>
 						<dl class="row">
+							<dt class="col-sm-3">ID</dt>
+							<dd class="col-sm-9">${film.filmId}</dd>
+
 							<dt class="col-sm-3">Title</dt>
 							<dd class="col-sm-9">${film.title}</dd>
 
@@ -90,8 +93,16 @@
 							</dd>
 
 						</dl>
-						<a href="index.html" class="btn btn-secondary" role="button">Back
-							to Home</a>
+					</div>
+					<div class="col text-center">
+
+						<a href="updateFilmForm.do?filmId=${film.filmId}"
+							class="btn btn-outline-secondary" role="button">Update Film</a><br>
+						<br> <a href="deleteFilm.do?filmId=${film.filmId}"
+							class="btn btn-outline-secondary" role="button">Delete Film</a><br>
+						<br> <a href="index.html" class="btn btn-secondary"
+							role="button">Back to Home</a>
+
 					</div>
 				</div>
 			</div>

@@ -34,7 +34,7 @@ public class FilmController {
 		mv.addObject("films", dao.findFilmsByKeyword(keyword));
 		return mv;
 	}
-
+	
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.GET, params = { "title", "description", "releaseYear",
 			"langId", "rentDur", "rate", "length", "repCost", "rating", "features" })
 

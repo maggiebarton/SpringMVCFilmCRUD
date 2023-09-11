@@ -321,7 +321,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 //					// execute update
 //					updateCount = stmt.executeUpdate();
 //				}
-			conn.commit();
+				conn.commit();
 			}
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -423,7 +423,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 
 					// if film has actors, insert actor IDs into film_actor table
 					if (film.getActors() != null && film.getActors().size() > 0) {
-						sql = "INSERT INTO film_actor (film_id, actor_id) VALUES (?,?)";
+						sql = "insert into film_actor (film_id, actor_id) VALUES (?,?)";
 						stmt = conn.prepareStatement(sql);
 						for (Actor actor : film.getActors()) {
 							stmt.setInt(1, newFilmID);
@@ -464,7 +464,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			// start transaction
 			conn.setAutoCommit(false);
 
-			// delete from film table table (only deleting films we added, so no child table
+			// (only deleting films we added, so no child table
 			// is dependent)
 			String sql = "delete from film where id = ?";
 
@@ -493,8 +493,8 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 
 	@Override
 	public boolean updateFilm(Film film) {
-		//for testing
-		//System.out.println("***********************" + film);
+		// for testing
+		// System.out.println("***********************" + film);
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASS);
@@ -570,4 +570,5 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 
 		return film;
 	}
+
 }

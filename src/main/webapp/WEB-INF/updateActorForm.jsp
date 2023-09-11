@@ -32,17 +32,29 @@
 
 	<div class="container">
 		<div class="row align-items-center">
+			<div class="col">
+				<form action="updateActor.do" method="post">
+					<input type="hidden" name="actorId" value="${actor.actorId}">
 
-			<form action="updateActor.do" method="post">
-				<input type="hidden" name="actorId" value="${actor.actorId}">
-				First Name: <input type="text" name="firstName"
-					value="${actor.firstName}"> <br> Last Name: <input
-					type="text" name="lastName" value="${actor.lastName}"> <br>
-				<input type="submit" class="btn btn-secondary" role="button"
-					value="Submit"> <input type="reset"
-					class="btn btn-outline-secondary" role="button" value="Reset">
-			</form>
+					<div class="mb-3">
+						<label for="firstName" class="form-label">First Name</label> <input
+							type="text" name="firstName" value="${actor.firstName}"
+							class="form-control">
+					</div>
 
+					<div class="mb-3">
+						<label for="laststName" class="form-label">Last Name</label> <input
+							type="text" name="lastName" value="${actor.lastName}"
+							class="form-control">
+					</div>
+					<div class="mb-3">
+						<input type="submit" class="btn btn-secondary" role="button"
+							value="Submit"> <input type="reset"
+							class="btn btn-outline-secondary" role="button" value="Reset">
+					</div>
+				</form>
+			</div>
+			<div class="col"></div>
 		</div>
 	</div>
 

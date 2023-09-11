@@ -37,7 +37,8 @@
 				<div class="row align-items-center">
 					<p class="lead">An error occurred while updating actor.</p>
 
-					<br> <a href="index.html" class="btn btn-secondary"
+					<br> 
+					<a href="index.html" class="btn btn-secondary"
 						role="button">Back to Home</a>
 
 				</div>
@@ -60,6 +61,10 @@
 							<dt class="col-sm-2">Last Name</dt>
 							<dd class="col-sm-9">${actor.lastName}</dd>
 						</dl>
+						<a href="updateActorForm.do?actorId=${actor.actorId}"
+							class="btn btn-outline-secondary" role="button">Update Actor</a>
+						<a href="deleteActor.do?actorId=${actor.actorId}"
+							class="btn btn-outline-secondary" role="button">Delete Actor</a>
 						<a href="index.html" class="btn btn-secondary" role="button">Back
 							to Home</a>
 	

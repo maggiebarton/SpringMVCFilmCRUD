@@ -23,45 +23,65 @@
 			<h1 class="display-2">Add Film</h1>
 		</div>
 	</div>
+
+
 	<div class="container">
 		<div class="row align-items-center">
-			<form action="addFilm.do" method="get">
-				Title:
-				<input type="text" name="title">
-				<br>
-				Description:
-				<input type="textarea" name="description" width="">
-				<br>
-				Release Year:
-				<input type="number" name="releaseYear">
-				<br>
-				Language ID:
-				<input type="number" name="langId">
-				<br>
-				Rental Duration:
-				<input type="number" name="rentDur">
-				<br>
-				Rental Rate:
-				<input type="text" name="rate">
-				<br>
-				Length of Movie:
-				<input type="number" name="length">
-				<br>
-				Replacement Cost:
-				<input type="text" name="repCost">
-				<br>
-				Movie Rating:
-				<input type="text" name="rating">
-				<br>
-				Special Features:
-				<input type="text" name="features">
-				<br>
+			<div class="col">
+				<form action="addFilm.do" method="get">
+					<div class="mb-3">
+						<label for="title" class="form-label">Title</label>
+						<input type="text" name="title" class="form-control">
+					</div>
 
-				<input type="submit" class="btn btn-secondary" role="button" value="Submit">
-				<input type="reset" class="btn btn-outline-secondary" role="button" value="Reset">
-			</form>
+					<div class="mb-3">
+						<label for="description" class="form-label">Description</label>
+						<input type="text" name="description" class="form-control">
+					</div>
+
+					<div class="mb-3">
+						<label for="releaseYear" class="form-label">Release Year</label>
+						<input type="number" name="releaseYear" class="form-control">
+					</div>
+					<div class="mb-3">
+						<label for="langId" class="form-label">Language ID</label>
+						<input type="number" name="langId" class="form-control">
+					</div>
+					<div class="mb-3">
+						<label for="rentDur" class="form-label">Rental Duration</label>
+						<input type="number" name="rentDur" class="form-control">
+					</div>
+					<div class="mb-3">
+						<label for="rate" class="form-label">Rental Rate</label>
+						<input type="text" name="rate" class="form-control">
+					</div>
+					<div class="mb-3">
+						<label for="length" class="form-label">Length</label>
+						<input type="number" name="length" class="form-control">
+					</div>
+					<div class="mb-3">
+						<label for="repCost" class="form-label">Replacement Cost</label>
+						<input type="text" name="repCost" class="form-control">
+					</div>
+					<div class="mb-3">
+						<label for="rating" class="form-label">Rating</label>
+						<input type="text" name="rating" class="form-control">
+					</div>
+					<div class="mb-3">
+						<label for="features" class="form-label">Special Features</label>
+						<input type="text" name="features" class="form-control">
+					</div>
+					<div class="mb-3">
+						<input type="submit" class="btn btn-secondary" role="button" value="Submit">
+						<input type="reset" class="btn btn-outline-secondary" role="button" value="Reset">
+					</div>
+				</form>
+			</div>
+			<div class="col"></div>
 		</div>
 	</div>
+
+
 	<footer class="fixed-bottom bg-dark text-center text-white">
 
 		<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
