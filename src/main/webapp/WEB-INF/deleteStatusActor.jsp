@@ -29,7 +29,7 @@
 
 	<div class="row text-center">
 		<div class="p-3 mb-2 bg-secondary text-white">
-			<h1 class="display-2">Delete Status</h1>
+			<h1 class="display-5">Delete Status</h1>
 		</div>
 	</div>
 	<div class="container">
